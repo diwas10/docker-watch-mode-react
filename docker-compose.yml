@@ -1,0 +1,16 @@
+version: '3.3'
+networks:
+  mynetwork:
+    external:
+      name: ocas
+services:
+  ocas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker-watchmode-react
+    container_name: docker-watchmode-react
+    network_mode: ocas
+    restart: always
+    ports:
+      - 80:80
